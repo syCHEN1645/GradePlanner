@@ -47,6 +47,14 @@ public class CourseList {
         }
         return totalCredit == 0 ? 0 : totalGrade / totalCredit;
     }
+    
+    public int calculateSemCredit() {
+        int totalCredit = 0;
+        for (Course c : courses) {
+            totalCredit += c.getCredit();
+        }
+        return totalCredit;
+    }
 
     public void editCourse(int index, int credit, float grade) {
         if (index < courses.size()) {
