@@ -1,8 +1,13 @@
+import java.util.ArrayList;
 import java.util.List;
 
-public abstract class CourseList {
-    protected List<Course> courses;
+public class CourseList {
+    protected List<Course> courses = new ArrayList<>();
     boolean fixed;
+
+    public CourseList() {
+        this.fixed = false;
+    }
 
     public boolean isFixed() {
         return fixed;
