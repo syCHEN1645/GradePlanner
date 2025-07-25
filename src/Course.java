@@ -2,11 +2,21 @@ public class Course {
     private int credit;
     private float grade;
     private String info;
+    private boolean fixed;
 
     public Course(int credit, float grade) {
         this.credit = credit;
         this.grade = grade;
         this.info = "";
+        this.fixed = false;
+    }
+
+    public boolean isFixed() {
+        return fixed;
+    }
+
+    public void setFixed(boolean fixed) {
+        this.fixed = fixed;
     }
 
     public float getGrade() {

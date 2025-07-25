@@ -42,4 +42,41 @@ public abstract class CourseList {
         }
         return totalCredit == 0 ? 0 : totalGrade / totalCredit;
     }
+
+    public void editCourse(int index, int credit, float grade) {
+        if (index < courses.size()) {
+            courses.get(index).setCredit(credit);
+            courses.get(index).setGrade(grade);
+        }
+    }
+
+    public void editCourse(int index, int credit) {
+        if (index < courses.size()) {
+            courses.get(index).setCredit(credit);
+        }
+    }
+
+    public void editCourse(int index, float grade) {
+        if (index < courses.size()) {
+            courses.get(index).setGrade(grade);
+        }
+    }
+
+    public void editCourse(int index, String info) {
+        if (index < courses.size()) {
+            courses.get(index).setInfo(info);
+        }
+    }
+
+    public void fixCourse(int index) {
+        if (index < courses.size()) {
+            courses.get(index).setFixed(true);
+        }
+    }
+
+    public void unfixCourse(int index) {
+        if (index < courses.size()) {
+            courses.get(index).setFixed(false);
+        }
+    }
 }
