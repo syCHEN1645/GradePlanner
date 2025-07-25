@@ -1,7 +1,7 @@
 import java.util.List;
 
 public abstract class CourseList {
-    private List<Course> courses;
+    protected List<Course> courses;
 
     public void addCourse(Course course) {
         courses.add(course);
@@ -13,5 +13,5 @@ public abstract class CourseList {
         }
     }
 
-    public abstract void calculateSemGrade();
+    public abstract void listCourses();
 }
