@@ -19,10 +19,12 @@ public class CoursePlan {
     }
 
     public float calculateGrade() {
-        float grade = 0;
+        float totalGrade = 0;
+        int totalCredit = 0;
         for (CourseList sem : semesters) {
-            //
+            totalGrade += sem.calculateSemCredit() * sem.calculateSemCredit();
+            totalCredit += sem.calculateSemCredit();
         }
-        return grade;
+        return totalCredit == 0 ? 0 : totalGrade / totalCredit;
     }
 }
