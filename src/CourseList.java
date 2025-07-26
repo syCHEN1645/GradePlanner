@@ -2,15 +2,6 @@ import java.util.List;
 
 public abstract class CourseList {
     protected List<Course> courses;
-    boolean fixed;
-
-    public boolean isFixed() {
-        return fixed;
-    }
-
-    public void setFixed(boolean fixed) {
-        this.fixed = fixed;
-    }
 
     public void addCourse(Course course) {
         courses.add(course);
@@ -85,6 +76,18 @@ public abstract class CourseList {
     public void unfixCourse(int index) {
         if (index < courses.size()) {
             courses.get(index).setFixed(false);
+        }
+    }
+
+    public void fixAllCourses() {
+        for (Course c : courses) {
+            c.setFixed(true);
+        }
+    }
+    
+    public void unfixAllCourses() {
+        for (Course c : courses) {
+            c.setFixed(false);
         }
     }
 }
