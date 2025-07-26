@@ -33,8 +33,10 @@ public class CourseList {
         float totalGrade = 0;
         float totalCredit = 0;
         for (Course c : courses) {
-            totalGrade += c.getGrade() * c.getCredit();
-            totalCredit += c.getCredit();
+            if (c.isFixed()) {
+                totalGrade += c.getGrade() * c.getCredit();
+                totalCredit += c.getCredit();
+            }
         }
         return totalCredit == 0 ? 0 : totalGrade / totalCredit;
     }
@@ -42,7 +44,9 @@ public class CourseList {
     public int calculateSemCredit() {
         int totalCredit = 0;
         for (Course c : courses) {
-            totalCredit += c.getCredit();
+            if (c.isFixed()) {
+                totalCredit += c.getCredit();
+            }
         }
         return totalCredit;
     }
