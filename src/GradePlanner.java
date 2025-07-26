@@ -15,6 +15,15 @@ public class GradePlanner {
     }
 
     public static void minimumAverageGrade() {
-        //
+    }
+
+    public static float calculatePastTotalGrade() {
+        float pastTotalGrade = 0;
+        for (CourseList list : plan.semesters) {
+            for (Course c : list.courses) {
+
+            }
+        }
+        return pastTotalGrade;
     }
 }
