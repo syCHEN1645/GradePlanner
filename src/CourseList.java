@@ -1,8 +1,12 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class CourseList {
+public class CourseList {
     protected List<Course> courses = new ArrayList<>();
+
+    public CourseList() {
+
+    }
 
     public void addCourse(Course course) {
         courses.add(course);
