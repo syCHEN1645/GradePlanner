@@ -14,16 +14,28 @@ public class GradePlanner {
         //
     }
 
-    public static void minimumAverageGrade() {
-    }
-
-    public static float calculatePastTotalGrade() {
-        float pastTotalGrade = 0;
+    public static float minimumAverageGrade() {
+        int futureTotalCredit = 0;
         for (CourseList list : plan.semesters) {
             for (Course c : list.courses) {
-
+                if (!c.isFixed()) {
+                    futureTotalCredit += c.getCredit();
+                }
             }
         }
-        return pastTotalGrade;
+        float[] pastGradeCredit = calculatePastTotalGradeCredit();
+        float futureTotalGrade = (pastGradeCredit[1] + futureTotalCredit) * target - pastGradeCredit[0];
+        return futureTotalGrade / futureTotalCredit;
+    }
+
+    public static float[] calculatePastTotalGradeCredit() {
+        float pastTotalGrade = 0;
+        int pastTotalCredit = 0;
+        for (CourseList list : plan.semesters) {
+            int credit = list.calculateSemCredit();
+            pastTotalGrade += list.calculateSemGrade() * credit;
+            pastTotalCredit += credit;
+        }
+        return new float[]{pastTotalGrade, (float)pastTotalCredit};
     }
 }
