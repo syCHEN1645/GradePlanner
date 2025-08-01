@@ -21,6 +21,7 @@ public class CoursePlan {
         for (int i = 0; i < 8; i++) {
             semesters.add(new CourseList());
         }
+        target = 2.0;
     }
 
     public double calculateFixedGrade(int end) {

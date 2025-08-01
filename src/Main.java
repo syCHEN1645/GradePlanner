@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
@@ -14,5 +16,10 @@ public class Main {
         plan.addCourse(2, new Course(4, 0));
         plan.listPlan();
         System.out.println(plan.getMinimumAverageGrade());
+        Scanner scanner = new Scanner(System.in);
+        System.out.println(scanner.nextLine());
+        System.out.println("!");
+        System.out.println(scanner.nextLine());
+        System.out.println("!");
     }
 }
