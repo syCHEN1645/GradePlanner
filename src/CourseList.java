@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * CourseList is a class that contains a list of Course objects.
+ * It is like a semester.
+ */
 public class CourseList {
     protected List<Course> courses = new ArrayList<>();
 
@@ -29,7 +33,7 @@ public class CourseList {
         }
     }
 
-    public double calculateSemGrade() {
+    public double getFixedSemGrade() {
         double totalGrade = 0;
         double totalCredit = 0;
         for (Course c : courses) {
@@ -41,10 +45,20 @@ public class CourseList {
         return totalCredit == 0 ? 0 : totalGrade / totalCredit;
     }
     
-    public int calculateSemCredit() {
+    public int getFixedSemCredit() {
         int totalCredit = 0;
         for (Course c : courses) {
             if (c.isFixed()) {
+                totalCredit += c.getCredit();
+            }
+        }
+        return totalCredit;
+    }
+
+    public int getUnfixedSemCredit() {
+        int totalCredit = 0;
+        for (Course c : courses) {
+            if (!c.isFixed()) {
                 totalCredit += c.getCredit();
             }
         }
