@@ -10,16 +10,22 @@ public class CoursePlan {
         }
     }
 
-    public float calculateGrade(int end) {
-        float grade = 0;
-        for (int i = 0; i < end; i++) {
-            //
+    public double calculateGrade(int end) {
+        if (end > 8 || end <= 0) {
+            end = 8;
         }
-        return grade;
+        double totalGrade = 0;
+        int totalCredit = 0;
+        for (int i = 0; i < end; i++) {
+            CourseList sem = semesters.get(end);
+            totalGrade += sem.calculateSemCredit() * sem.calculateSemCredit();
+            totalCredit += sem.calculateSemCredit();
+        }
+        return totalCredit == 0 ? 0 : totalGrade / totalCredit;
     }
 
-    public float calculateGrade() {
-        float totalGrade = 0;
+    public double calculateGrade() {
+        double totalGrade = 0;
         int totalCredit = 0;
         for (CourseList sem : semesters) {
             totalGrade += sem.calculateSemCredit() * sem.calculateSemCredit();

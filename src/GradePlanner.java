@@ -1,20 +1,37 @@
 public class GradePlanner {
     protected static CoursePlan plan = new CoursePlan();
-    protected static float target;
+    protected static double target;
 
-    public static float getTarget() {
+    public static double getTarget() {
         return target;
     }
 
-    public static void setTarget(float target) {
+    public static void setTarget(double target) {
         GradePlanner.target = target;
+    }
+
+    public static void addCourse(int sem, Course course) {
+        plan.semesters.get(sem).addCourse(course);
+    }
+
+    public static void deleteCourse(int sem, int index) {
+        plan.semesters.get(sem).deleteCourse(index);
+    }
+
+    public static void listPlan() {
+        for (CourseList list : plan.semesters) {
+            if (!list.courses.isEmpty()) {
+                list.listCourses();
+                System.out.println();
+            }
+        }
     }
 
     public static void minimumPlan() {
         //
     }
 
-    public static float minimumAverageGrade() {
+    public static double minimumAverageGrade() {
         int futureTotalCredit = 0;
         for (CourseList list : plan.semesters) {
             for (Course c : list.courses) {
@@ -23,19 +40,19 @@ public class GradePlanner {
                 }
             }
         }
-        float[] pastGradeCredit = calculatePastTotalGradeCredit();
-        float futureTotalGrade = (pastGradeCredit[1] + futureTotalCredit) * target - pastGradeCredit[0];
+        double[] pastGradeCredit = calculatePastTotalGradeCredit();
+        double futureTotalGrade = (pastGradeCredit[1] + futureTotalCredit) * target - pastGradeCredit[0];
         return futureTotalGrade / futureTotalCredit;
     }
 
-    public static float[] calculatePastTotalGradeCredit() {
-        float pastTotalGrade = 0;
+    public static double[] calculatePastTotalGradeCredit() {
+        double pastTotalGrade = 0;
         int pastTotalCredit = 0;
         for (CourseList list : plan.semesters) {
             int credit = list.calculateSemCredit();
             pastTotalGrade += list.calculateSemGrade() * credit;
             pastTotalCredit += credit;
         }
-        return new float[]{pastTotalGrade, (float)pastTotalCredit};
+        return new double[]{pastTotalGrade, (double)pastTotalCredit};
     }
 }

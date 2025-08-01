@@ -29,9 +29,9 @@ public class CourseList {
         }
     }
 
-    public float calculateSemGrade() {
-        float totalGrade = 0;
-        float totalCredit = 0;
+    public double calculateSemGrade() {
+        double totalGrade = 0;
+        double totalCredit = 0;
         for (Course c : courses) {
             if (c.isFixed()) {
                 totalGrade += c.getGrade() * c.getCredit();
@@ -51,7 +51,7 @@ public class CourseList {
         return totalCredit;
     }
 
-    public void editCourse(int index, int credit, float grade) {
+    public void editCourse(int index, int credit, double grade) {
         if (index < courses.size()) {
             courses.get(index).setCredit(credit);
             courses.get(index).setGrade(grade);
@@ -64,7 +64,7 @@ public class CourseList {
         }
     }
 
-    public void editCourse(int index, float grade) {
+    public void editCourse(int index, double grade) {
         if (index < courses.size()) {
             courses.get(index).setGrade(grade);
         }
