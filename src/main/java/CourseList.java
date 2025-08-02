@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * CourseList is a class that contains a list of Course objects.
+ * main.java.CourseList is a class that contains a list of main.java.Course objects.
  * It is like a semester.
  */
 public class CourseList {

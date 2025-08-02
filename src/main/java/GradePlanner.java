@@ -5,7 +5,7 @@ public class GradePlanner {
     protected static ArrayList<CoursePlan> plans = new ArrayList<>();
     protected static CoursePlan currentPlan;
     protected static Scanner scanner = new Scanner(System.in);
-    protected static boolean active;
+    protected static boolean active = true;
 
     public GradePlanner() {
         if (plans.isEmpty()) {
