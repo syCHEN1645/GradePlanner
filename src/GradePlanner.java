@@ -16,15 +16,8 @@ public class GradePlanner {
     public static void startProgram() {
         while (true) {
             String input = scanner.nextLine();
-            if (input.equals(Command.LIST)) {
-                System.out.println("List plan");
-                currentPlan.listPlan();
-            } else if (input.equals(Command.EXIT) || input.equals(Command.QUIT)) {
-                System.out.println("Exit program");
-                break;
-            } else {
-                System.out.println("Invalid input");
-            }
+            Command command = CommandParser.parse(input);
+            CommandParser.execute(command);
         }
     }
 
