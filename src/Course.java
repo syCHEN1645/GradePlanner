@@ -4,18 +4,18 @@ public class Course {
     private String info;
     private boolean fixed;
 
-    public Course(int credit, double grade) {
+    public Course(int credit) {
         this.credit = credit;
-        this.grade = grade;
-        this.info = "";
+        this.grade = 0;
+        this.info = "Pending update";
         this.fixed = false;
     }
 
-    public Course(int credit, double grade, boolean fixed) {
+    public Course(int credit, double grade) {
         this.credit = credit;
         this.grade = grade;
-        this.info = "";
-        this.fixed = fixed;
+        this.info = "Pending update";
+        this.fixed = true;
     }
 
     public boolean isFixed() {

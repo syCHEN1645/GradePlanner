@@ -46,6 +46,10 @@ public class GradePlanner {
         System.out.println("Invalid command");
     }
 
+    protected static void add(CommandAdd command) {
+
+    }
+
     protected void addCoursePlan() {
         plans.add(new CoursePlan());
     }
